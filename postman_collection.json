@@ -1,0 +1,111 @@
+{
+  "info": {
+    "name": "Roj Video CSV API",
+    "_postman_id": "c9d3a8fa-1234-5678-9abc-def012345678",
+    "description": "Postman collection for the CSV-backed Video API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "List Videos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/videos?sort_by=views_count&order=desc",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "videos"
+          ],
+          "query": [
+            {
+              "key": "sort_by",
+              "value": "views_count"
+            },
+            {
+              "key": "order",
+              "value": "desc"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Video",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"source_post_id\": \"108426800413716480\",\n    \"post_url\": \"https://tiktok.com/@patrizienta/video/108426800413716480\",\n    \"post_description\": \"#makeup #spain #makeupandhair #followme #blonde #watermelon\",\n    \"post_created\": \"06/17/16\",\n    \"likes_count\": 397,\n    \"shares_count\": 0,\n    \"views_count\": 6277,\n    \"comments_count\": 0\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/videos",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "videos"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Update Video",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"source_post_id\": \"108426800413716480\",\n    \"post_url\": \"https://tiktok.com/@patrizienta/video/108426800413716480\",\n    \"post_description\": \"#makeup #update test\",\n    \"post_created\": \"06/17/16\",\n    \"likes_count\": 400,\n    \"shares_count\": 1,\n    \"views_count\": 6300,\n    \"comments_count\": 1\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/videos/108426800413716480",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "videos",
+            "108426800413716480"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Delete Video",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/videos/108426800413716480",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "videos",
+            "108426800413716480"
+          ]
+        }
+      }
+    }
+  ]
+}

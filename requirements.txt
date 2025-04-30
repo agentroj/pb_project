@@ -1,0 +1,7 @@
+Django
+djangorestframework
+drf-spectacular
+gunicorn
+pytest
+pytest-django
+drf-spectacular-sidecar

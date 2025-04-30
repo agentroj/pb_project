@@ -1,0 +1,10 @@
+version: "3.3"
+services:
+  web:
+    build: .
+    volumes:
+      - .:/app
+    ports:
+      - "8008:8008"
+    env_file:
+      - .env
