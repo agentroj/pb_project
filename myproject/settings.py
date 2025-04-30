@@ -7,6 +7,7 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "roj-default-key")
 DEBUG = os.getenv("DEBUG", "1") == "1"
 ALLOWED_HOSTS = ["*"]
 
+'''
 INSTALLED_APPS = [
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -17,19 +18,41 @@ INSTALLED_APPS = [
     "drf_spectacular",
     "videos",
 ]
+'''
 
+INSTALLED_APPS = [
+    "django.contrib.staticfiles",
+    "django.contrib.contenttypes",
+    "django.contrib.auth", 
+    "rest_framework",
+    "drf_spectacular",
+    "drf_spectacular_sidecar",
+    "videos",
+]
+
+
+'''
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
 ]
+'''
+
+MIDDLEWARE = [
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+]
 
 ROOT_URLCONF = "myproject.urls"
 WSGI_APPLICATION = "myproject.wsgi.application"
 
+'''
 # SQLite only for Django admin—but we don’t really use it for videos.
 DATABASES = {
     "default": {
@@ -37,6 +60,15 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
+'''
+
+# we never touch a real database—everything lives in videos.csv
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.dummy",
+    }
+}
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
