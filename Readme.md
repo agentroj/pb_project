@@ -1,6 +1,6 @@
 # Roj’s CSV-Backed Video API
 
-## 🚀 Quickstart
+## Quickstart
 
 1. **Clone & env**  
    ```bash
@@ -24,7 +24,7 @@ docker-compose up --build
 
 Located at `videos.csv`—you can edit or replace with your own tab-delimited file.
 
-## 📚 Endpoints
+## Endpoints
 
 | Method | Path            | Description                                       |
 | ------ | --------------- | ------------------------------------------------- |
@@ -41,7 +41,7 @@ Located at `videos.csv`—you can edit or replace with your own tab-delimited fi
 - `post_created` (MM/DD/YY)  
 - `likes_count`, `shares_count`, `views_count`, `comments_count` (integers)  
 
-## 🧪 Tests
+## Tests
 
 ```bash
 pytest
